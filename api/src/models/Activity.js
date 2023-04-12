@@ -1,5 +1,7 @@
+const { DataTypes } = require('sequelize');
 // Modelo 2: Activity
-const Activity = sequelize.define('Activity', {
+module.exports = (sequelize) => {
+  sequelize.define('Activity', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -11,14 +13,16 @@ const Activity = sequelize.define('Activity', {
       allowNull: false,
     },
     dificultad: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.ENUM("1","2","3","4","5"),
       allowNull: false,
     },
     duracion: {
       type: DataTypes.INTEGER,
     },
     temporada: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("Summer", "Autumn", "Winter", "Spring"),
       allowNull: false,
     },
   });
+}
+    
