@@ -1,10 +1,10 @@
 const { Op } = require("sequelize");
-const { Country, Activity } = require("../db.js");
+const { Countries, Activity } = require("../db.js");
 
 //llamado a todos los países
 const getCountries = async () => {
     try {
-      const countries = await Country.findAll({
+      const countries = await Countries.findAll({
         attributes: ["id", "name", "flag", "continent", "population"],
       });
       return countries;
@@ -16,7 +16,7 @@ const getCountries = async () => {
   //paises por nombre
   const getCountriesByName = async (name) => {
     try {
-      const countries = await Country.findAll({
+      const countries = await Countries.findAll({
         where: {
           name: {
             [Op.iLike]: `%${name}%`,
@@ -34,33 +34,54 @@ const getCountries = async () => {
   };
   
   //busqueda de país por id
-  const getCountryById = async (id) => {
-    try {
-      const country = await Country.findByPk(id.toUpperCase(), {
-        attributes: [
-          "id",
-          "name",
-          "flag",
-          "continent",
-          "capital",
-          "subregion",
-          "population",
-        ],
-        include: [
-          {
-            model: Activity,
-            attributes: ["id", "name", "difficulty", "duration", "season"],
-          },
-        ],
-      });
-      if (!country) {
-        throw new Error("Id del país, no encontrado");
-      }
-      return country;
-    } catch (error) {
-      throw error;
-    }
-  };
+  // const getCountryById = async (id) => {
+  //   try {
+  //     const country = await Countries.findByPk({
+  //       where :{
+  //         id :id
+  //       },
+  //       attributes: [
+  //         "id",
+  //         "name",
+  //         "flag",
+  //         "continent",
+  //         "capital",
+  //         "subregion",
+  //         "population",
+  //       ],
+  //       include: [
+  //         {
+  //           model: Activity,
+  //           attributes: ["id", "name", "difficulty", "duration", "season"],
+  //         },
+  //       ],
+  //     });
+  //     if (!country) {
+  //       throw new Error("Id del país, no encontrado");
+  //     }
+  //     return country;
+  //   } catch (error) {
+  //     throw error;
+  //   }
+  // };
+
+  const getCountryById= async (id) => {
+    const country_id = await Countries.findOne({
+        where: {
+            id: id
+        },
+        include: 
+        [
+                  {
+                    model: Activity,
+                    attributes: ["id", "name", "difficulty", "duration", "season"],
+                  },
+                ],
+    })
+
+    const country = country_id === null ? "DIRECCIONAR A 404" : country_id
+    return country
+};
 
   //========================= /countries    y por query ========================
 
@@ -90,7 +111,7 @@ const getAllCountries = async (req, res) => {
       const { id } = req.params;
       const country = await getCountryById(id);
       if (!country) {
-        res.sta("No existe un país con esa Id");
+        res.status(404).send("No existe un país con esa Id");
       }
       res.json(country);
     } catch (error) {

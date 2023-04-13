@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllCountries } = require('../controllers/Country');
+const { getAllCountries, getCountriById } = require('../controllers/Country');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -10,9 +10,7 @@ const router = Router();
 
 router.get("/countries", getAllCountries);
   
-  router.get("/countries/:idPais", (req, res) => {
-    res.status(200).send("Detalles de todos los paises")
-  });
+router.get("/countries/:id", getCountriById);
   
   router.get("/countries/name?=", (req, res) => {
     res.status(200).send("Esta ruta debe obtener todos aquellos países que coinciden con el nombre recibido por query. (No es necesario que sea una coincidencia exacta).")
@@ -25,6 +23,12 @@ router.get("/countries", getAllCountries);
   router.get("/activities", (req, res) => {
     res.status(200).send("Obtiene un arreglo de objetos, donde cada objeto es una actividad turística.")
   });
+
+
+
+
+
+
 
 
 module.exports = router;

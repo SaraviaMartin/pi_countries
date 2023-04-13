@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Country, Activity } = require("../db.js");
+const { Countries, Activity } = require("../db.js");
 
 //traer la info de la API (de forma asíncrona)
 const getApiInfo = async () => {
@@ -11,7 +11,7 @@ const getApiInfo = async () => {
         return {
           id: el.cca3,
           name: el.name.common,
-          flag: el.flags[1],
+          flag: el.flag[1],
           continent: el.region,
           capital: el.capital ? el.capital : "Capital no encontrada",
           subregion: el.subregion,
@@ -19,7 +19,7 @@ const getApiInfo = async () => {
         };
       });
   
-      await Country.bulkCreate(countriesMapeo);
+      await Countries.bulkCreate(countriesMapeo);
     } catch (error) {
       console.log(error + " <======= ES EN EL LLAMADO A LA API");
     }
