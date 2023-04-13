@@ -9,15 +9,15 @@ module.exports = (sequelize) => {
     allowNull: false,
     primaryKey: true,
   },
-  nombre: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  bandera: {
+  flag: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  continente: {
+  continent: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
   area: {
     type: DataTypes.INTEGER,
   },
-  poblacion: {
+  population: {
     type: DataTypes.INTEGER,
   },
 });

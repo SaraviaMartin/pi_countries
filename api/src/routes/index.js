@@ -1,23 +1,14 @@
-require('dotenv').config();
 const { Router } = require('express');
+const { getAllCountries } = require('../controllers/Country');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const { Sequelize } = require('sequelize');
-const countries = require("./countries");
-const activities = require("./activities");
-const {
-  DB_USER, DB_PASSWORD, DB_HOST,
-} = process.env;
 
 const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.get("/countries", (req, res) =>{
-    
-    res.status(200).send("Aqui estaran todos los paises")
-  });
+router.get("/countries", getAllCountries);
   
   router.get("/countries/:idPais", (req, res) => {
     res.status(200).send("Detalles de todos los paises")
