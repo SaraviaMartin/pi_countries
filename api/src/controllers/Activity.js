@@ -1,8 +1,5 @@
 const { Activity } = require("../db");
 
-
-
-
 const postActivity = async (req, res) => {
     const { name, duration, difficulty, season} = req.body
 

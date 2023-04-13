@@ -32,56 +32,29 @@ const getCountries = async () => {
       throw error;
     }
   };
-  
-  //busqueda de país por id
-  // const getCountryById = async (id) => {
-  //   try {
-  //     const country = await Countries.findByPk({
-  //       where :{
-  //         id :id
-  //       },
-  //       attributes: [
-  //         "id",
-  //         "name",
-  //         "flag",
-  //         "continent",
-  //         "capital",
-  //         "subregion",
-  //         "population",
-  //       ],
-  //       include: [
-  //         {
-  //           model: Activity,
-  //           attributes: ["id", "name", "difficulty", "duration", "season"],
-  //         },
-  //       ],
-  //     });
-  //     if (!country) {
-  //       throw new Error("Id del país, no encontrado");
-  //     }
-  //     return country;
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // };
+
 
   const getCountryById= async (id) => {
-    const country_id = await Countries.findOne({
-        where: {
-            id: id
-        },
-        include: 
-        [
-                  {
-                    model: Activity,
-                    attributes: ["id", "name", "difficulty", "duration", "season"],
-                  },
-                ],
-    })
+    try {
 
-    const country = country_id === null ? "DIRECCIONAR A 404" : country_id
-    return country
-};
+      const country_id = await Countries.findOne({
+          where: {
+              id: id
+          },
+          include: 
+          [{
+            attributes: ["id", "name", "difficulty", "duration", "season"],
+            model: Activity,
+          },],
+      })
+      if (!country_id) {
+        throw new Error("Id del país, no encontrado");
+      }
+      return country_id;
+    } catch (error) {
+      throw error;
+    }
+    }
 
   //========================= /countries    y por query ========================
 
