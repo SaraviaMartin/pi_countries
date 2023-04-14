@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const { getAllCountries, getCountriById } = require('../controllers/Country');
+const { getNewActivity, getAllActivity, getActId } = require('../controllers/Activity');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -16,14 +17,12 @@ router.get("/countries/:id", getCountriById);
     res.status(200).send("Esta ruta debe obtener todos aquellos países que coinciden con el nombre recibido por query. (No es necesario que sea una coincidencia exacta).")
   });
   
-  router.post("/activities", (req, res) => {
-    res.status(200).send("Crea una actividad turística")
-  });
-  
-  router.get("/activities", (req, res) => {
-    res.status(200).send("Obtiene un arreglo de objetos, donde cada objeto es una actividad turística.")
-  });
+  router.post('/activity', getNewActivity);
+  router.get('/activity/', getAllActivity);
+  router.get('/activity/:id', getActId);
 
+
+module.exports = router;
 
 
 
