@@ -7,9 +7,8 @@ function Home(){
         <div className="home-container">
             <h1>Esta es la Home de CoutryApp</h1>
             <Navbar/>
-            <Cards>
-
-            </Cards>
+            <Cards/>
+            
             
         </div>
     )

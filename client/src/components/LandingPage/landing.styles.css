@@ -1,0 +1,6 @@
+.landing-page{
+    background-image: url(../../countries.png);
+    background-size: cover;
+    width: auto;
+    height: 800px;
+}

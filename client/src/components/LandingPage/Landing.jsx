@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 function Landing(){
     return(
-        <div>
+        <div className="landing-page">
             <h1>Bienvenido a mi LandingPage de CoutryApp</h1>
             <Link to="/home">
                 <button>Entrar</button>
