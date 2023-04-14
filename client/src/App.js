@@ -11,6 +11,7 @@ function App() {
       <BrowserRouter>
       <div>
         <Switch>
+        <Route exact path="/" component={Landing} />
           <Route exact path="/home" component={Home}/>
           <Route path="/home/:id" component={Detail}/>
           <Route path="/form" component={Form}/>
