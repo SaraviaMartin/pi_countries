@@ -1,9 +1,13 @@
 import "./landing.styles.css";
+import {Link} from "react-router-dom";
 
 function Landing(){
     return(
         <div>
-            <h1>Este es el componente Landing de CoutryApp</h1>
+            <h1>Bienvenido a mi LandingPage de CoutryApp</h1>
+            <Link to="/home">
+                <button>Entrar</button>
+            </Link>
         </div>
     )
 };
