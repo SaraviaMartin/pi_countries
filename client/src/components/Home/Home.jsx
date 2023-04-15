@@ -1,22 +1,22 @@
 import "./home.styles.css";
 import Cards from "../Cards/Cards"
 import Navbar from "../Navbar/Navbar";
-import { useEffect,  } from "react";
-import {useDispatch, useSelector} from "react-redux"
+// import { useEffect,  } from "react";
+// import {useDispatch, useSelector} from "react-redux"
 
-import getAllCountries from "../../redux/Actions/actions"
+// import getAllCountries from "../../redux/Actions/actions"
 
 
 
 function Home(){
-    const dispatch = useDispatch();
-  const countries = useSelector((state) => state.countries);
+//     const dispatch = useDispatch();
+//   const countries = useSelector((state) => state.countries);
 
 //   const [order, setOrder] = useState("");
 
-  useEffect(() => {
-    dispatch(getAllCountries());
-  }, [dispatch]);
+//   useEffect(() => {
+//     dispatch(getAllCountries());
+//   }, [dispatch]);
 
 //   let handleReload = (e) => {
 //     e.preventDefault();

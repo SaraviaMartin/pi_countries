@@ -8,15 +8,26 @@ export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
 // export const GET_COUNTRY_ID = "GET_COUNTRY_ID";
 // export const RESET_DETAILS = "RESET_DETAILS" ;
 
-export const getAllCountries = () => {
-    return (dispatch) => {
-      return axios("https://restcountries.com/v3.1/all").then((res) =>
-        dispatch({ type: GET_ALL_COUNTRIES, payload: res.data })
-      );
-    };
-  };
+// export const getAllCountries = () => {
+//     return (dispatch) => {
+//       return axios("https://localhost:3001").then((res) =>
+//         dispatch({ type: GET_ALL_COUNTRIES, payload: res.data })
+//       );
+//     };
+//   };
   
-export default getAllCountries;  
+export function getAllCountries(){
+  return async function (dispatch){
+    const response = await axios("https://localhost:3001/countries");
+    return dispatch({
+      type: GET_ALL_COUNTRIES,
+      payload: response.data,
+    })
+  }
+}
+
+
+
 //   export const getCountry = (name) => {
 //     return (dispatch) => {
 //       return axios(`http://localhost:3001/countries?name=${name}`).then((res) =>
