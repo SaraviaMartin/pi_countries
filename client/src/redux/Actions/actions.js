@@ -16,9 +16,9 @@ export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
 //     };
 //   };
   
-export function getAllCountries(){
+export default function getAllCountries(){
   return async function (dispatch){
-    const response = await axios("https://localhost:3001/countries");
+    const response = await axios("http://localhost:3001/countries/");
     return dispatch({
       type: GET_ALL_COUNTRIES,
       payload: response.data,
