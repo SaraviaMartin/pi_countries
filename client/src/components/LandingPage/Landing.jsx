@@ -4,9 +4,9 @@ import {Link} from "react-router-dom";
 function Landing(){
     return(
         <div className="landing-page">
-            <h1>Bienvenido a mi LandingPage de CoutryApp</h1>
+            <h1 className="title ">Bienvenido a mi CoutryApp</h1>
             <Link to="/home">
-                <button>Entrar</button>
+                <button className="button">Entrar</button>
             </Link>
         </div>
     )

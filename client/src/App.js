@@ -15,9 +15,7 @@ function App() {
           <Route exact path="/home" component={Home}/>
           <Route path="/home/:id" component={Detail}/>
           <Route path="/form" component={Form}/>
-          <Route path="/landing" component={Landing}/>
         </Switch>
-      <h1>Henry Countries: By Juan Martin </h1>
       </div>
       </BrowserRouter>
 
