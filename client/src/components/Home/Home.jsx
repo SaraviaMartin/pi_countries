@@ -1,22 +1,22 @@
 import "./home.styles.css";
 import Cards from "../Cards/Cards"
 import Navbar from "../Navbar/Navbar";
-// import { useEffect,  } from "react";
-// import {useDispatch, useSelector} from "react-redux"
-
-// import getAllCountries from "../../redux/Actions/actions"
+import { useEffect,  } from "react";
+import {useDispatch, useSelector} from "react-redux"
+import getAllCountries from "../../redux/Actions/actions"
 
 
 
 function Home(){
-//     const dispatch = useDispatch();
+
 //   const countries = useSelector((state) => state.countries);
 
 //   const [order, setOrder] = useState("");
 
-//   useEffect(() => {
-//     dispatch(getAllCountries());
-//   }, [dispatch]);
+const dispatch = useDispatch();
+useEffect(() => {
+  dispatch(getAllCountries());
+}, [dispatch]);
 
 //   let handleReload = (e) => {
 //     e.preventDefault();
@@ -26,7 +26,14 @@ function Home(){
     return(
         <div className="home-container">
             <Navbar/>
-            <Cards/>    
+            <Cards
+                    // flags={country.flags}
+                    // name={country.name}
+                    // continents={country.continents}
+                    // key={country.id}
+                    // id={country.id}
+                    // activities={country.activities}
+                  />  
         </div>
     )
 };

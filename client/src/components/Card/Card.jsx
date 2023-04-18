@@ -1,9 +1,9 @@
 import "./card.styles.css"
 
-function Card(){
+function Card({name}){
     return(
         <div className="card-container">
-            <h2>Pais:</h2>
+            <h2>{name}</h2>
             <h2>Continente:</h2>
         </div>
     )

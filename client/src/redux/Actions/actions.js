@@ -8,23 +8,18 @@ export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
 // export const GET_COUNTRY_ID = "GET_COUNTRY_ID";
 // export const RESET_DETAILS = "RESET_DETAILS" ;
 
-// export const getAllCountries = () => {
-//     return (dispatch) => {
-//       return axios("https://localhost:3001").then((res) =>
-//         dispatch({ type: GET_ALL_COUNTRIES, payload: res.data })
-//       );
-//     };
-//   };
-  
-export default function getAllCountries(){
-  return async function (dispatch){
-    const response = await axios("http://localhost:3001/countries/");
-    return dispatch({
-      type: GET_ALL_COUNTRIES,
-      payload: response.data,
-    })
-  }
+export default function getAllCountries() {
+  return async (dispatch) => {
+    await axios.get("http://localhost:3001/countries/").then((result) => {
+      return dispatch({
+        type: GET_ALL_COUNTRIES,
+        payload: result.data, // action.payload es la informacion que devuelvo aca
+      });
+    });
+  };
 }
+  
+
 
 
 
