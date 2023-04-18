@@ -10,7 +10,7 @@ export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
 
 export default function getAllCountries() {
   return async (dispatch) => {
-    await axios.get("http://localhost:3001/countries/").then((result) => {
+    await axios.get("http://localhost:3001/countries").then((result) => {
       return dispatch({
         type: GET_ALL_COUNTRIES,
         payload: result.data, // action.payload es la informacion que devuelvo aca

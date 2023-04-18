@@ -58,9 +58,9 @@ import {
     //       countries: populationSort,
     //     };
   
-    //   default:
+      default:
+        return state;
   }
 }
-    //     return state;
 
 export default rootReducer;
