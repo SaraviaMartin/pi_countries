@@ -7,15 +7,15 @@ const getApiInfo = async () => {
       const url = "https://restcountries.com/v3.1/all";
       const response = await axios.get(url);
   
-      const countriesMapeo = response.data.map((el) => {
+      const countriesMapeo = response.data.map((country) => {
         return {
-          id: el.cca3,
-          name: el.name.common,
-          flag: el.flag[1],
-          continent: el.region,
-          capital: el.capital ? el.capital : "Capital no encontrada",
-          subregion: el.subregion,
-          population: el.population,
+          id: country.cca3,
+          name: country.name.common,
+          flag: country.flag[1],
+          continent: country.region,
+          capital: country.capital ? country.capital : "Capital no encontrada",
+          subregion: country.subregion,
+          population: country.population,
         };
       });
   
