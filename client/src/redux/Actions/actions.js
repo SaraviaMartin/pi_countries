@@ -8,14 +8,13 @@ export const RELOAD = "RELOAD";
 export const GET_COUNTRY_ID = "GET_COUNTRY_ID";
 export const RESET_DETAILS = "RESET_DETAILS" ;
 
-export default function getAllCountries() {
-  return async (dispatch) => {
-    return axios("http://localhost:3001/countries").then((res) => {
-      dispatch({
+export  function getAllCountries() {
+  return async function (dispatch){
+    const response = await axios("https://restcountries.com/v3.1/all")
+      return  dispatch({
         type: GET_ALL_COUNTRIES,
-        payload:res.data,
-      })
-;    })
+        payload: response.data,
+      })   
   }
   // return async function (dispatch){
   //   try {

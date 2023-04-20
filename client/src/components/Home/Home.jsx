@@ -1,19 +1,18 @@
 import "./home.styles.css";
 import Cards from "../Cards/Cards"
 import Navbar from "../Navbar/Navbar";
-import { useEffect,  } from "react";
+import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import getAllCountries from "../../redux/Actions/actions"
+import { getAllCountries }from "../../redux/Actions/actions"
 
 
 
 function Home(){
 
-//   const countries = useSelector((state) => state.countries);
-
 //   const [order, setOrder] = useState("");
 
 const dispatch = useDispatch();
+const allCountries = useSelector((state) => state.allCountries);
 useEffect(() => {
   dispatch(getAllCountries());
 }, [dispatch]);
@@ -25,7 +24,7 @@ useEffect(() => {
 
     return(
         <div className="home-container">
-         <Cards/>
+         <Cards allCountries={allCountries}/>
         </div>
     )
 };

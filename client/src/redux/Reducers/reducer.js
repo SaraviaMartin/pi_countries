@@ -10,7 +10,7 @@ import {
   } from "../Actions/actions";
 
   const initialState = {
-    countries: [],
+    allCountries: [],
     // countryById: {},
     // countryActivities: [],
     // countryActivities2: [],
@@ -23,7 +23,7 @@ import {
       case GET_ALL_COUNTRIES:
         return {
           ...state,
-          countries: action.payload,
+          allCountries: action.payload,
           
         };
       // case GET_COUNTRY:
