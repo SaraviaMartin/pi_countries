@@ -10,13 +10,24 @@ export const RESET_DETAILS = "RESET_DETAILS" ;
 
 export default function getAllCountries() {
   return async (dispatch) => {
-    await axios.get("http://localhost:3001/countries").then((result) => {
-      return dispatch({
+    return axios("http://localhost:3001/countries").then((res) => {
+      dispatch({
         type: GET_ALL_COUNTRIES,
-        payload: result.data, // action.payload es la informacion que devuelvo aca
-      });
-    });
-  };
+        payload:res.data,
+      })
+;    })
+  }
+  // return async function (dispatch){
+  //   try {
+  //     var json = await axios.get("http://localhost:3001/countries");
+  //     return dispatch({
+  //       type: GET_ALL_COUNTRIES,
+  //       payload: json.data, // action.payload es la informacion que devuelvo aca
+  //     });
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // };
 }
   
   export const getCountry = (name) => {

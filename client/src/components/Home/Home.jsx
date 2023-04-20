@@ -25,15 +25,7 @@ useEffect(() => {
 
     return(
         <div className="home-container">
-            <Navbar/>
-            <Cards
-                    // flags={country.flags}
-                    // name={country.name}
-                    // continents={country.continents}
-                    // key={country.id}
-                    // id={country.id}
-                    // activities={country.activities}
-                  />  
+         <Cards/>
         </div>
     )
 };
