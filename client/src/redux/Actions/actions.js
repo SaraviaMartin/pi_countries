@@ -10,7 +10,7 @@ export const RESET_DETAILS = "RESET_DETAILS" ;
 
 export  function getAllCountries() {
   return async function (dispatch){
-    const response = await axios("https://restcountries.com/v3.1/all")
+    const response = await axios("http://localhost:3001/countries")
       return  dispatch({
         type: GET_ALL_COUNTRIES,
         payload: response.data,

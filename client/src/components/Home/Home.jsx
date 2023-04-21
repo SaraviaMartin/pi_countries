@@ -17,6 +17,7 @@ useEffect(() => {
   dispatch(getAllCountries());
 }, [dispatch]);
 
+console.log(allCountries)
 //   let handleReload = (e) => {
 //     e.preventDefault();
 //     dispatch(getAllCountries());
@@ -24,6 +25,7 @@ useEffect(() => {
 
     return(
         <div className="home-container">
+          <Navbar/>
          <Cards allCountries={allCountries}/>
         </div>
     )

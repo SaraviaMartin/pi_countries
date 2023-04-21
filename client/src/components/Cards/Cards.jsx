@@ -13,8 +13,11 @@ function Cards({allCountries}){
                 return(
                     <Card
                         id = {country.id}
+                        flag = {country.flag}
                         name= {country.name}
-                        key={"Card" + country.id}
+                        continent={country.continent}
+                        population={country.population}
+                        key={country.id}
                     />
                 )
             })
