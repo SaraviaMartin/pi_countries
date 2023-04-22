@@ -4,6 +4,8 @@ import Navbar from "../Navbar/Navbar";
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import { getAllCountries }from "../../redux/Actions/actions"
+// import SortByName from "../sorts/SortByName";
+// import SortByPopulation from "../sorts/SortByPopulation";
 
 
 
@@ -17,6 +19,7 @@ useEffect(() => {
   dispatch(getAllCountries());
 }, [dispatch]);
 
+
 console.log(allCountries)
 //   let handleReload = (e) => {
 //     e.preventDefault();
@@ -24,6 +27,7 @@ console.log(allCountries)
 //   };
 
     return(
+      
         <div className="home-container">
           <Navbar/>
          <Cards allCountries={allCountries}/>
