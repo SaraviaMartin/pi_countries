@@ -7,7 +7,6 @@ import { useState } from "react";
 import { getAllCountries }from "../../redux/Actions/actions"
 import Pagination from "../Pagination/Pagination"
 import Detail from "../Detail/Detail"
-
 // import SortByName from "../sorts/SortByName";
 // import SortByPopulation from "../sorts/SortByPopulation";
 
