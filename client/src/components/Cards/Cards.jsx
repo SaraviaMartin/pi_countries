@@ -2,6 +2,7 @@ import React from "react"
 import Card from "../Card/Card"
 import "./cards.styles.css"
 import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 function Cards({allCountries}){
 //    const countriesList = allCountries 

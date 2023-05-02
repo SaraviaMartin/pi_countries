@@ -29,10 +29,7 @@ import React from "react";
       </div>
     );
   } else {
-    return 
-    <div>
-
-    </div>;
+    return <div></div>;
   }
 }
 
